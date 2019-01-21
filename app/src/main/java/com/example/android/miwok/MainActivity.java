@@ -31,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
+        configNavigation();
+
+    }
+
+    private void configNavigation(){
         // Find the View that shows the numbers category
         TextView numbers = (TextView) findViewById(R.id.numbers);
 
@@ -39,11 +44,9 @@ public class MainActivity extends AppCompatActivity {
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link NumbersActivity}
-                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                // Create a new intent to open the {@link NumbersTranslationActivity}
+                navigateToActivity(NumbersTranslationActivity.class);
 
-                // Start the new activity
-                startActivity(numbersIntent);
             }
         });
 
@@ -55,11 +58,9 @@ public class MainActivity extends AppCompatActivity {
             // The code in this method will be executed when the family category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link FamilyActivity}
-                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                // Create a new intent to open the {@link FamilyTranslationActivity}
+                navigateToActivity(FamilyTranslationActivity.class);
 
-                // Start the new activity
-                startActivity(familyIntent);
             }
         });
 
@@ -71,11 +72,9 @@ public class MainActivity extends AppCompatActivity {
             // The code in this method will be executed when the colors category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link ColorsActivity}
-                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                // Create a new intent to open the {@link ColorsTranslationActivity}
+                navigateToActivity(ColorsTranslationActivity.class);
 
-                // Start the new activity
-                startActivity(colorsIntent);
             }
         });
 
@@ -87,12 +86,21 @@ public class MainActivity extends AppCompatActivity {
             // The code in this method will be executed when the phrases category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link PhrasesActivity}
-                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
-
-                // Start the new activity
-                startActivity(phrasesIntent);
+                // Create a new intent to open the {@link PhrasesTranslationActivity}
+                navigateToActivity(PhrasesTranslationActivity.class);
             }
         });
+    }
+
+    /*
+    * Navigates to a given activity
+     */
+    private void navigateToActivity(Class activity) {
+
+        // Create a new intent to open the given {@link activity}
+        Intent phrasesIntent = new Intent(MainActivity.this, activity);
+
+        // Start the new activity
+        startActivity(phrasesIntent);
     }
 }

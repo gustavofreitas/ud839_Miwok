@@ -15,31 +15,35 @@
  */
 package com.example.android.miwok;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ColorsActivity extends BaseActivity {
+public class ColorsTranslationActivity extends BaseTranslationActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        List<Word> words = new ArrayList<>();
-
-        words.add(new Word("red", "weṭeṭṭi"));
-        words.add(new Word("green", "chokokki"));
-        words.add(new Word("brown", "ṭakaakki"));
-        words.add(new Word("gray", "ṭopoppi"));
-        words.add(new Word("black", "kululli"));
-        words.add(new Word("white", "kelelli"));
-        words.add(new Word("dusty yellow", "ṭopiisә"));
-        words.add(new Word("mustard yellow", "chiwiiṭә"));
-
-        this.setTranslations(words);
+        configWordsList();
 
     }
+
+    @Override
+    protected void configWordsList() {
+        ArrayList<Word> words = new ArrayList<>();
+
+        words.add(new Word("red", "weṭeṭṭi", R.raw.color_red, R.drawable.color_red));
+        words.add(new Word("green", "chokokki", R.raw.color_green, R.drawable.color_green));
+        words.add(new Word("brown", "ṭakaakki", R.raw.color_brown, R.drawable.color_brown));
+        words.add(new Word("gray", "ṭopoppi", R.raw.color_green, R.drawable.color_gray));
+        words.add(new Word("black", "kululli", R.raw.color_black, R.drawable.color_black));
+        words.add(new Word("white", "kelelli", R.raw.color_white, R.drawable.color_white));
+        words.add(new Word("dusty yellow", "ṭopiisә", R.raw.color_dusty_yellow, R.drawable.color_dusty_yellow));
+        words.add(new Word("mustard yellow", "chiwiiṭә", R.raw.color_mustard_yellow, R.drawable.color_mustard_yellow));
+
+        this.setTranslations(words, R.color.category_numbers);
+    }
+
 }

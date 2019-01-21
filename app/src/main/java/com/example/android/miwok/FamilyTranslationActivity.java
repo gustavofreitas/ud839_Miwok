@@ -18,28 +18,32 @@ package com.example.android.miwok;
 import android.os.Bundle;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class FamilyActivity extends BaseActivity {
+public class FamilyTranslationActivity extends BaseTranslationActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        List<Word> words = new ArrayList<>();
+        configWordsList();
+    }
 
-        words.add(new Word("father", "әpә"));
-        words.add(new Word("mother", "әṭa"));
-        words.add(new Word("son", "angsi"));
-        words.add(new Word("daughter", "tune"));
-        words.add(new Word("older brother", "taachi"));
-        words.add(new Word("younger brother", "chalitti"));
-        words.add(new Word("older sister", "teṭe"));
-        words.add(new Word("younger sister", "kolliti"));
-        words.add(new Word("grandmother", "ama"));
-        words.add(new Word("grandfather", "paapa"));
+    @Override
+    protected void configWordsList() {
+        ArrayList<Word> words = new ArrayList<>();
 
-        this.setTranslations(words);
+        words.add(new Word("father", "әpә", R.raw.family_father, R.drawable.family_father));
+        words.add(new Word("mother", "әṭa", R.raw.family_mother, R.drawable.family_mother));
+        words.add(new Word("son", "angsi", R.raw.family_son, R.drawable.family_son));
+        words.add(new Word("daughter", "tune", R.raw.family_daughter, R.drawable.family_daughter));
+        words.add(new Word("older brother", "taachi", R.raw.family_older_brother, R.drawable.family_older_brother));
+        words.add(new Word("younger brother", "chalitti", R.raw.family_younger_brother, R.drawable.family_younger_brother));
+        words.add(new Word("older sister", "teṭe", R.raw.family_older_sister, R.drawable.family_older_sister));
+        words.add(new Word("younger sister", "kolliti", R.raw.family_younger_sister, R.drawable.family_younger_sister));
+        words.add(new Word("grandmother", "ama", R.raw.family_grandmother, R.drawable.family_grandmother));
+        words.add(new Word("grandfather", "paapa", R.raw.family_grandfather, R.drawable.family_grandfather));
+
+        this.setTranslations(words, R.color.category_family);
     }
 }
